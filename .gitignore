@@ -1,5 +1,6 @@
-test.php
+**/test.php
 df*
 **/.ds_store
 .buildpath
+.project
 .settings 
