@@ -19,9 +19,7 @@ function echoUserNamesAsOptions() {
 }
 
 function echoProductLetterAsOptions() {
-	echo "hello";
 	$products = ppFileToArray(PP_FN_PRODUCT);
-	echo "<p>var_dump(products)=[";var_dump($products);echo "]</p>";
 	foreach ($products as $i => $product) {
 		$productLetter = trim($product[PP_P_LETTER]);
 		$productId = $product[PP_ID];
@@ -42,12 +40,12 @@ function echoTypesAsOptions() {
 <Html>
 <head>
 <style type="text/css">
-
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<center>
-	<h3>Enter Rating sdfgdfgdsfg</h3>
+	<h3>Enter Rating</h3>
 	<form method="post" action="SaveRating.php">
 		<p>
 			Select your name from the list:<br />
@@ -56,7 +54,7 @@ function echoTypesAsOptions() {
 			</select>
 		</p>
 		<p>
-			Select the beer letter from the list:<br />
+            Select the <?php echo PP_PRODUCT;?> letter from the list:<br />
 			<select name="productId">
 				<?php 
 				echo "Hello world";

@@ -3,7 +3,6 @@ require_once 'PPFuncts.php';
 
 function echoTypesAsOptions() {
 	$types = ppFileToArray(PP_FN_TYPE);
-	//var_dump($types);
 	foreach ($types as $i => $type) {
 		$displayName = trim($type[PP_T_NAME]);
 		echo '<option value="'.$displayName.'">'.$displayName.'</option>'."\n";
@@ -15,6 +14,7 @@ function echoTypesAsOptions() {
 <head>
 <style type="text/css">
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<center>

@@ -10,7 +10,7 @@ require_once 'PPFuncts.php';
 </head>
 <body>
 <center>
-<p><strong><?php echo PP_EVENT_NAME;?> w viewport</strong></p>
+<p><strong><?php echo PP_EVENT_NAME;?></strong></p>
 <form method="post" action="SaveName.php">
 First Name: <input type="text" size="12" maxlength="36" name="fName"><p />
 Last Name: <input type="text" size="12" maxlength="36" name="lName"><p />

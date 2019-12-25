@@ -37,8 +37,8 @@ define("PP_RANK_N", 4);
 define("PP_RANK_VALUE_OVERALL", 5);
 
 // text constants
-define("PP_PRODUCT", "Beer");
-define("PP_EVENT_NAME", "John's House Warming Party");
+define("PP_PRODUCT", "Wine");
+define("PP_EVENT_NAME", "Kimbra's New Years Eve Party");
 define("PP_RANKS_NEEDED_TO_REVEAL", 0);
 define("PP_REFRESH_SECONDS", 240);
 

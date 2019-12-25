@@ -51,6 +51,7 @@ function echoSaveName() {
 <head>
 <style type="text/css">
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <center>

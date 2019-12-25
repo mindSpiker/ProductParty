@@ -12,7 +12,7 @@ function echoLeaderboardRankings() {
 				<th>Name</th>
 				<th>Rank</th>
 				<th>Avgerage Price<br />Difference</th>
-				<th>Beers<br />Rated</th>
+				<th><?php echo PP_PRODUCT;?>s<br />Rated</th>
 			</tr>
 		<?php
 		$ranksPrice = ppSortRanks($ranks, PP_RANK_VALUE_PRICE);
@@ -34,7 +34,7 @@ function echoLeaderboardRankings() {
 				<th>Name</th>
 				<th>Rank</th>
 				<th>Average Type<br />Accuracy</th>
-				<th>Beers<br />Rated</th>
+				<th><?php echo PP_PRODUCT;?>s<br />Rated</th>
 			</tr>
 		<?php
 		$ranksType = ppSortRanks($ranks, PP_RANK_VALUE_TYPE);
@@ -77,7 +77,7 @@ table {
 </head>
 <body>
 	<center>
-	<h3>Leaderboard With Viewport</h3>
+	<h3>Leaderboard</h3>
 	<p>start at<br /><strong>http://burgerbot.com/start.php</strong><p>
 	<?php echoLeaderboardRankings(); ?>
 	</center>
