@@ -21,9 +21,11 @@ function echoUserNamesAsOptions() {
 function echoProductLetterAsOptions() {
 	$products = ppFileToArray(PP_FN_PRODUCT);
 	foreach ($products as $i => $product) {
-		$productLetter = trim($product[PP_P_LETTER]);
-		$productId = $product[PP_ID];
-		echo '<option value="'.$productId.'">'.$productLetter.'</option>'."\n";
+	    if ($product[PP_P_REVEAL] == 0) {
+    		$productLetter = trim($product[PP_P_LETTER]);
+    		$productId = $product[PP_ID];
+    		echo '<option value="'.$productId.'">'.$productLetter.'</option>'."\n";
+	    }
 	}
 }
 
@@ -42,6 +44,7 @@ function echoTypesAsOptions() {
 <style type="text/css">
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php ppCheckRefreshToAdmin();?>
 </head>
 <body>
 	<center>

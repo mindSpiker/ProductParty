@@ -27,7 +27,7 @@ function echoSaveName() {
 			$row[PP_U_FIRST_NAME] = $fName;
 			$row[PP_U_LAST_NAME] = $lName;
 			//$row[PP_U_EXPERTISE] = $_POST['expertise'];
-			$userId = ppSaveRowToFile($row, PP_FN_USER);
+			$userId = ppAddRowToFile($row, PP_FN_USER);
 			echo '<p>Your name was added.</p>';
 		}
 		
@@ -36,7 +36,7 @@ function echoSaveName() {
 	<p>
 		<form method="post" action="EnterRating.php">
 			<input type="hidden" value="<?php echo $userId;?>" name="userId">
-			<input type="submit" value="Rate the <?php echo PP_PRODUCT;?>" name="submit">
+			<input type="submit" value="Rate a <?php echo PP_PRODUCT;?>" name="submit">
 		</form>
 	</p>
 		<?php 

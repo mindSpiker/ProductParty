@@ -4,22 +4,22 @@ require_once 'PPFuncts.php';
 
 function echoSaveRating() {
 
-	$userId = isset($_POST['userId']) ? trim($_POST['userId']) : false;
+	$userId = isset($_POST['userId']) ? trim($_POST['userId']) : -1;
 	$userRec = false;
-	if ($userId) {
+	if ($userId >= 0) {
 		$userRec = ppGetRecordWithFileName($userId, PP_FN_USER);
 	}
-	$productId = isset($_POST['productId']) ? trim($_POST['productId']) : false;
+	$productId = isset($_POST['productId']) ? trim($_POST['productId']) : -1;
 	$productRec = false;
-	if ($productId) {
+	if ($productId >= 0) {
 		$productRec = ppGetRecordWithFileName($productId, PP_FN_PRODUCT);
 	}
 	$userRating = isset($_POST['rating']) ? trim($_POST['rating']) : false;
 	$price = isset($_POST['price']) ? trim($_POST['price']) : false;
-	$type = isset($_POST['type']) ? trim($_POST['type']) : false;
+	$type = isset($_POST['type']) ? trim($_POST['type']) : -1;
 
 	//echo "[strlen(_POST['gender'])=".strlen($_POST['gender'])." strlen(fName)=".strlen($fName)." strlen(lName)=".strlen($lName)."]";
-	if ($userId && $productId && $userRating && $price && $type && $userRec && $productRec) {
+	if ($userId>=0 && $productId>=0 && $userRating && $price && $type>=0 && $userRec && $productRec && $productRec[PP_P_REVEAL] == 0) {
 		// search for product and user rating
 		$recordFound = false;
 		$ratings = ppFileToArray(PP_FN_RATING);
@@ -43,24 +43,27 @@ function echoSaveRating() {
 			$row[PP_R_RATING] = $userRating;
 			$row[PP_R_TYPE] = $type;
 			$row[PP_R_PRICE] = $price;
-			ppSaveRowToFile($row, PP_FN_RATING);
+			ppAddRowToFile($row, PP_FN_RATING);
 			echo "<p>Rating for ".PP_PRODUCT." ".$productRec[PP_P_LETTER]." by ".$displayName." was added.</p>";
 		}
 		echoRankings($userId);
 	} else {
 		echo "<p>Oops... something is wrong<br />Use back button to go back and fix it.</p>";
-		if ($userId == false) {
+		if ($userId < 0) {
 			echo "<p>Can't find user</p>";
 		} else {
 			if ($userRec == false) {
 				echo "<p>Can't find the user record for id:".$userId." type</p>";
 			}
 		}
-		if ($productId == false) {
+		if ($productId < 0) {
 			echo "<p>Can't find the ".PP_PRODUCT." to rate</p>";
 		} else {
 			if ($productRec == false) {
 				echo "<p>Can't find the product record for id:".$productId." type</p>";
+			} else if ($productRec[PP_P_REVEAL] != 0) {
+			    echo "<p>Wine ".$productRec[PP_P_LETTER]." has already been revealed.<br />";
+			    echo "To rate it now would cheating!</p>";
 			}
 		}
 		if ($userRating == false) {
@@ -69,7 +72,7 @@ function echoSaveRating() {
 		if ($price == false) {
 			echo "<p>Can't find the price estimate</p>";
 		}
-		if ($type == false) {
+		if ($type < 0) {
 			echo "<p>Can't find the ".PP_PRODUCT." type</p>";
 		}
 	}

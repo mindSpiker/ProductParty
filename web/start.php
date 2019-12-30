@@ -7,6 +7,7 @@ require_once 'PPFuncts.php';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 </style>
+<?php ppCheckRefreshToAdmin();?>
 </head>
 <body>
 <center>

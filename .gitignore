@@ -3,4 +3,9 @@ df*
 **/.ds_store
 .buildpath
 .project
-.settings 
+.settings
+Images/*
+page_not_found.html
+pwCheckFile.sm4
+web/Images/*
+web/upload_logs/* 

@@ -5,7 +5,7 @@ require_once 'MSLog.php';
 function echoSaveProduct() {
 	
 	$letters = isset($_POST['letters']) ? preg_replace('/[^A-Z0-9-_\.]/','',strtoupper(trim($_POST['letters']))) : false;
-	$saveName = "Images/".$letters;
+	$saveName = "../Images/".$letters;
 	$photoFN = false;
 	if (isset($_FILES['upFile'])) {
 		$photoFN = saveUpFile($saveName);
@@ -44,12 +44,14 @@ function echoSaveProduct() {
 			$row[PP_P_TYPE] = $type;
 		}
 		$row[PP_P_LETTER] = $letters;
+		$row[PP_P_REVEAL] = 0;
 		
 		if ($letterFound) {
 			$products[$letterFoundRow] = $row;
-			ppRewriteFile($products, PP_FN_PRODUCT);
+			pp2DArrayToFile(PP_FN_PRODUCT, $products);
+			//ppRewriteFile($products, PP_FN_PRODUCT);
 		} else {
-			ppSaveRowToFile($row, PP_FN_PRODUCT);
+			ppAddRowToFile($row, PP_FN_PRODUCT);
 			echo "<p>".PP_PRODUCT." ".$letters." was added.</p>";
 		}
 
