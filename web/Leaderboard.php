@@ -65,6 +65,7 @@ function echoLeaderboardRankings() {
 <style type="text/css">
 body, table, th, td {
 	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
 }
 th, td {
 	padding-left:10pt;

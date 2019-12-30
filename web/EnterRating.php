@@ -42,6 +42,10 @@ function echoTypesAsOptions() {
 <Html>
 <head>
 <style type="text/css">
+body {
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php ppCheckRefreshToAdmin();?>

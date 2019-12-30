@@ -6,6 +6,10 @@ require_once 'PPFuncts.php';
 <title>Name Entry Form</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
+body {
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 </style>
 <?php ppCheckRefreshToAdmin();?>
 </head>

@@ -71,6 +71,7 @@ function echoSaveProduct() {
 <style type="text/css">
 body table tr td th { 
 	text-align:"center";
+    font-family: Arial, Helvetica, sans-serif;
 }
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </style>

@@ -324,11 +324,11 @@ function ppPercent($number){
 
 function ppDollar($number) {
 	setlocale(LC_MONETARY, 'en_US');
-	if (is_double($number)) {
+	//if (is_double($number)) {
 		return money_format('%(#10n', $number);
-	} else {
-		return $number;
-	}
+	//} else {
+	//	return $number;
+	//}
 }
 
 ////////////////////
