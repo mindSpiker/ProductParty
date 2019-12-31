@@ -41,11 +41,8 @@ function echoTypesAsOptions() {
 ?><!DOCTYPE HTML>
 <Html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body {
-    text-align:center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php ppCheckRefreshToAdmin();?>
@@ -63,9 +60,7 @@ body {
 		<p>
             Select the <?php echo PP_PRODUCT;?> letter from the list:<br />
 			<select name="productId">
-				<?php 
-				echo "Hello world";
-				echoProductLetterAsOptions();?>
+				<?php echoProductLetterAsOptions();?>
 			</select>
 		</p>
 		Your guess of the price per bottle:<br>

@@ -68,13 +68,10 @@ function echoSaveProduct() {
 ?><!DOCTYPE HTML>
 <html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body table tr td th { 
-	text-align:"center";
-    font-family: Arial, Helvetica, sans-serif;
-}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <center>

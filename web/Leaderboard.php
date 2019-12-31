@@ -22,8 +22,12 @@ function echoLeaderboardRankings() {
 			$count++;
 			echo "\t\t\t<tr>\n";
 			echo "\t\t\t\t<td>".$rankPrice[PP_RANK_NAME]."</td>\n";
-			echo "\t\t\t\t<td>".$count."</td>\n";	
-			echo "\t\t\t\t<td>".ppDollar($rankPrice[PP_RANK_VALUE_PRICE])."</td>\n";
+			echo "\t\t\t\t<td>".$count."</td>\n";
+			if ($rankPrice[PP_RANK_N] > 2) {
+                echo "\t\t\t\t<td>".ppDollar($rankPrice[PP_RANK_VALUE_PRICE])."</td>\n";
+			} else {
+			    echo "\t\t\t\t<td>---</td>\n";
+			}
 			echo "\t\t\t\t<td>".$rankPrice[PP_RANK_N]."</td>\n";
 			echo "\t\t\t</tr>\n";
 		}	
@@ -60,23 +64,19 @@ function echoLeaderboardRankings() {
 ?><!DOCTYPE HTML>
 <Html>
 <head>
-<meta http-equiv="refresh" content="<?php echo PP_REFRESH_SECONDS;?>; http://burgerbot.com/Leaderboard.php">
+<meta http-equiv="refresh" content="<?php echo PP_REFRESH_SECONDS;?>; Leaderboard.php">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body, table, th, td {
-	text-align:center;
-	font-family: Arial, Helvetica, sans-serif;
-}
-th, td {
-	padding-left:10pt;
-	padding-right:10pt;
-}
-table {
-		border-collapse: collapse;
-}
 </style>
 </head>
 <body>
+	<img style="
+	   position: fixed;
+	   bottom: 0;right: 0;
+	   opacity: 30%;
+	   width: 100%;
+	   z-index: -1" src="Images/background.jpeg"/>
 	<center>
 	<h3>Leaderboard</h3>
 	<p>start at<br /><strong>http://burgerbot.com/start.php</strong><p>

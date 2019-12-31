@@ -12,6 +12,7 @@ function echoTypesAsOptions() {
 ?><!DOCTYPE HTML>
 <Html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
 body {
     text-align:center;

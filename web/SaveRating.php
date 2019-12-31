@@ -118,11 +118,8 @@ function echoRankings($userId) {
 ?><!DOCTYPE HTML>
 <Html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body {
-    text-align:center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

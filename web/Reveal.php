@@ -1,12 +1,15 @@
 <?php
-
+session_start();
 require_once 'PPFuncts.php';
 
 function echoReveal() {
 	?>
 	<table id="rankTable" border="1">
 		<tr>
-			<th><button onclick="sortTable(0)">Show<br /> </button></th>
+		<?php if (isset($_SESSION['isAdmin'])) {
+		    echo "\t\t\t<th><button onclick=\"sortTable(0)\">Show<br /> </button></th>";
+		}
+		?>
 			<th><button onclick="sortTable(1)">ID</button></th>	
 			<th>Image</th>
 			<th><button onclick="sortTable(3)">Average<br />Rating</button></th>
@@ -32,10 +35,12 @@ function echoReveal() {
 		// check if product need to be revealed due to the number of ranks
 		checkRevealProduct($products, $product, $rank[PP_RANK_N]);
 		
-		if ($product[PP_P_REVEAL] == 0) {
-		    echo "<td><a href=\"Reveal.php?revealId=".$product[PP_ID]."\">show</a></td>";
-		} else {
-		    echo "<td></td>";
+		if (isset($_SESSION['isAdmin'])) {
+    		if ($product[PP_P_REVEAL] == 0) {
+    		    echo "<td><a href=\"Reveal.php?revealId=".$product[PP_ID]."\">show</a></td>";
+    		} else {
+    		    echo "<td></td>";
+    		}
 		}
 		echo "<td>".$product[PP_P_LETTER]."</td>";
 		// image
@@ -83,8 +88,10 @@ function checkRevealProduct(&$products, &$product, $ranks) {
     }
     
     // check if product was marked for reveal by user click
-    if (isset($_GET['revealId']) && $_GET['revealId'] == $product[PP_ID]) {
-        $reveal = true;
+    if (isset($_SESSION['isAdmin'])) {
+        if (isset($_GET['revealId']) && $_GET['revealId'] == $product[PP_ID]) {
+            $reveal = true;
+        }
     }
     
     if ($reveal) {
@@ -111,22 +118,12 @@ function checkRevealProduct(&$products, &$product, $ranks) {
 <Html>
 <head>
 <meta http-equiv="refresh" content="<?php echo PP_REFRESH_SECONDS;?>; /Reveal.php">
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body, table, th, td {
-	text-align:center;
-	font-family: Arial, Helvetica, sans-serif;
-}
-th, td {
-	padding-left:10pt;
-	padding-right:10pt;
-}
-table {
-		border-collapse: collapse;
-}
 button {
-  background-color: white;
+  background-color: transparent;
   border: none;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: bold;
   font-size: 16px;
@@ -185,6 +182,12 @@ function sortTable(colIdx) {
 </script>
 </head>
 <body>
+	<img style="
+	   position:fixed;
+	   bottom:0;right:0;
+	   opacity:25%;
+	   width: 100%;
+	   z-index:-1" src="Images/background.jpeg"/>
 	<center>
 	<h3><?php echo PP_PRODUCT?> Rankings</h3>
 	<p>start at<br /><strong>http://burgerbot.com/start.php</strong><p>

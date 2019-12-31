@@ -33,22 +33,23 @@ function echoSaveName() {
 		
 		// make a form for them to go to the ratings page with name as a field
 		?>
-	<p>
+	<div>
 		<form method="post" action="EnterRating.php">
 			<input type="hidden" value="<?php echo $userId;?>" name="userId">
 			<input type="submit" value="Rate a <?php echo PP_PRODUCT;?>" name="submit">
 		</form>
-	</p>
+	</div>
 		<?php 
 		
 	} else {
-		echo "Oops... suptum be wrong<br /><a href='EnterName.php'>Try Again</a>";
+		echo "<p>Oops... suptum be wrong<br /><a href='EnterName.php'>Try Again</a></p>";
 	}
 }
 
 ?><!DOCTYPE:HTML>
 <Html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
 body {
     text-align:center;

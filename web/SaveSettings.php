@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'PPFuncts.php';
 
 function echoSaveSettings() {
@@ -10,6 +11,7 @@ function echoSaveSettings() {
 	
 	$result = ppSaveSettings($eventName, $productName, $ranksNeeded, $oldAdminPW, $newAdminPW);
 	if ($result === true) {
+	    $_SESSION['isAdmin'] = true;
 	    echo "<br />Settings saved!<br />";
 	} else {
 	    echo "Oops... suptum be wrong.<br />".$result."<br /><a href='Settings.php'>Try Again</a>";
@@ -26,11 +28,8 @@ function echoSaveSettings() {
 ?><!DOCTYPE:HTML>
 <Html>
 <head>
+<link rel="stylesheet" href="css/styles.css">
 <style type="text/css">
-body {
-    text-align:center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
